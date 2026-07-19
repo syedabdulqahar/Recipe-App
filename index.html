@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe App</title>
+  <meta name="description" content="Discover and search real recipes with fast load times and a clean, modern interface.">
+  <meta name="theme-color" content="#2f8f5b">
+  <link rel="preconnect" href="https://www.themealdb.com">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#recipes">Skip to content</a>
+  <header class="site-header">
+    <nav class="navbar page-shell" aria-label="Primary navigation">
+      <a class="brand" href="#" aria-label="Recipe App home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+            <path d="M6 3v8m4-8v8m-6 0h8M8 11v10m8-18v18m0-18c3 2 4 5 4 8s-1 5-4 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <h1>Recipe App</h1>
+      </a>
+
+      <div class="nav-actions">
+        <form class="search-form" id="searchForm">
+          <input id="searchInput" type="search" placeholder="Search pasta, chicken, curry..." aria-label="Search recipes" autocomplete="off">
+          <button class="btn" type="submit">Search</button>
+        </form>
+
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+          <span class="toggle-orbit" aria-hidden="true">
+            <span class="toggle-core"></span>
+          </span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero page-shell">
+      <div class="hero-copy">
+        <span class="eyebrow">Powered by live recipes</span>
+        <h2>Find something brilliant to cook tonight.</h2>
+        <p>Search real recipes, browse by category or region, and open a full ingredient list with cooking instructions in one clean place.</p>
+        <div class="hero-actions">
+          <button class="btn" id="randomBtn" type="button">Surprise me</button>
+          <a class="btn secondary" href="#recipes">Browse recipes</a>
+        </div>
+      </div>
+
+      <div class="hero-plate" aria-hidden="true">
+        <img id="heroImage" src="https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg" alt="">
+        <div class="hero-note">
+          <strong id="heroTitle">Spicy Arrabiata</strong>
+          <span id="heroMeta">Italian comfort food with a weeknight-friendly rhythm.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-shell" id="recipes">
+      <div class="controls">
+        <div class="filter-row" id="categoryChips" aria-label="Recipe categories"></div>
+        <div class="select-wrap">
+          <select id="areaSelect" aria-label="Filter by cuisine area">
+            <option value="">All cuisines</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Recipe finder</span>
+          <h2 id="resultTitle">Popular picks</h2>
+        </div>
+        <p id="resultCount">Loading recipes from TheMealDB...</p>
+      </div>
+
+      <div class="recipe-grid" id="recipeGrid">
+        <div class="state"><div class="loader" aria-label="Loading"></div></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="recipeModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <article class="modal-panel">
+      <div class="modal-hero">
+        <img id="modalImage" src="" alt="">
+        <button class="close-btn" id="closeModal" type="button" aria-label="Close recipe details">&times;</button>
+      </div>
+      <div class="modal-content" id="modalContent"></div>
+    </article>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
